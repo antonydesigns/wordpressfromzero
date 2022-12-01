@@ -6,6 +6,8 @@ Main template file
 */
 ?>
 
+<?php echo "I'm the alpha, so I'm right." ?>
+
 <div class="gap">
 
     <div>
