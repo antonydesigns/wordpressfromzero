@@ -6,6 +6,8 @@ Main template file
 */
 ?>
 
+<?php echo "but I'm the omega so I'm cool" ?>
+
 <div class="gap">
 
     <div>
