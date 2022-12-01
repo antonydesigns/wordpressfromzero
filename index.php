@@ -7,6 +7,7 @@ Main template file
 ?>
 
 <?php echo "I'm the alpha, so I'm right." ?>
+<?php echo "but I'm the omega so I'm cool" ?>
 
 <div class="gap">
 
