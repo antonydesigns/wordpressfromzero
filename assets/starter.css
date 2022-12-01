@@ -1,0 +1,163 @@
+/* BROWSER EXCEPTIONS ///////////////////////////////////////////////////////////////////////////////////*/
+
+.firefox-left-window-gap-bug {
+  margin-left: 1px;
+}
+
+/* LAB MODE /////////////////////////////////////////////////////////////////////////////////////////////*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid black;
+  border: none; /* default border is on  */
+}
+
+.invis {
+  display: none;
+}
+
+.test {
+  color: red !important;
+}
+
+body {
+  background-color: rgb(203, 203, 203);
+}
+
+.nb {
+  border: none;
+}
+
+.b {
+  border: 1px solid black;
+}
+
+.box {
+  min-width: 5vw;
+  min-height: 5vw;
+  background-color: lightblue;
+}
+
+.hl {
+  background-color: rgb(
+    141,
+    141,
+    141
+  ); /* for highlighting an element temporarily */
+}
+
+/* TEXT STYLE /////////////////////////////////////////////////////////////////////////////////////////////*/
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.txt-mid {
+  text-align: center;
+}
+
+.nolist {
+  list-style: none;
+  padding-left: 0;
+}
+
+button {
+  background-color: lightblue;
+  color: black;
+  padding: 0.5rem;
+  border-radius: 5px;
+  min-width: 5rem;
+  font-size: 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* EDGE STYLE /////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.rnd {
+  border-radius: 5px;
+}
+
+.shadow {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
+}
+
+/* LAYOUT /////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.global-container {
+  margin: 0 5vw;
+}
+
+.full-page {
+  min-height: 100vh;
+}
+
+.inline {
+  display: inline;
+}
+
+.mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.down {
+  flex-direction: column;
+}
+
+.left {
+  justify-content: start; /* if paired with 'down', this becomes like 'up' */
+}
+
+.up {
+  align-items: start; /* if paired with down, this becomes like 'left' */
+}
+
+.gap {
+  margin: 1rem;
+}
+
+.gapy {
+  margin-top: 1rem;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* min is arbitrary */
+}
+
+.col-mid {
+  justify-items: center;
+}
+
+.br {
+  border: none;
+  margin-top: 1rem;
+}
+
+/* XL SCREENS /////////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media screen and (min-width: 1280px) {
+  .global-container {
+    margin: 0 auto;
+    max-width: 1100px;
+  }
+}
+
+

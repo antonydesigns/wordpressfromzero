@@ -1,0 +1,70 @@
+/*
+Theme Name: Crypto Explainer
+Author: Antony
+Author URI: 
+Description: Antony's first successful custom WordPress theme.
+Requires at least: 6.1
+Tested up to: 6.1
+Requires PHP: 5.6
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: cryptoexplainer
+
+Crypto Explainer WordPress Theme, (C) 2020 WordPress.org
+Crypto Explainer is distributed under the terms of the GNU GPL.
+*/
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+nav {
+    margin: 2rem 0;
+    padding: 1rem 0;
+}
+
+p {
+    margin-top: 1rem;
+}
+
+
+.logo {
+    width: 7rem;
+}
+
+
+.navbar>div {
+    margin: 0 1rem;
+}
+
+.post-content {
+    max-width: 46rem;
+    width: 100%;
+}
+
+.post-preview{ 
+    max-width: 400px;
+}
+
+.post-featured-image>img {
+    max-height: 70vh;
+    width: 100%;
+}
+
+.post-thumbnail {
+    max-height: 50%;
+    color: rgb(125, 209, 237)
+}
+
+.post-thumbnail>img {
+    object-fit: cover;
+    width: 100%;
+    height: 30vh;
+}
+
+.footer {
+    max-width: 46rem;
+    width: 100%;
+}
