@@ -18,6 +18,7 @@ class ThemeControl
 
         Assets::instantiate();
         Menus::instantiate(); // we need this to enable editing the menu in Customizer
+        LoadMorePosts::instantiate();
 
         $this->hooks();
     }

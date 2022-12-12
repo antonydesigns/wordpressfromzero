@@ -1,1 +1,1 @@
-console.log('it works here though?');
+console.log("main.js");
