@@ -38,8 +38,6 @@ class Assets
     public function register_scripts()
     {
 
-        global $wp_query;
-
         wp_register_script('main', get_template_directory_uri() . '/assets/main.js', ['jquery'], filemtime(get_template_directory() . '/assets/main.js'), true);
 
         wp_enqueue_script('main');
