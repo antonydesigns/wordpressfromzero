@@ -42,5 +42,9 @@ class Assets
 
         wp_enqueue_script('main');
         wp_enqueue_script('jquery');
+
+        wp_localize_script('main', 'ajax_posts', array(
+            'ajaxurl' => admin_url('admin-ajax.php')
+        ));
     }
 }
