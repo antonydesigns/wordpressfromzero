@@ -1,24 +1,24 @@
 <?php
 
 /**
- * Blog homepage template
+ * Search results page
+ * 
  * @package CryptoExplainer
  */
 ?>
 
-<?php get_header(); ?>
+<?php
+get_header();
+global $wp_query;
+?>
 
 <!-- Title and intro content -->
 
 <header class="">
-    <h1 class=" page-title mid">
-        <?php single_post_title()
-        ?>
+    <h1 class="page-title mid">
+        Found <?php echo $wp_query->found_posts; ?> results for
     </h1>
-    <p><?php echo "The blog homepage template " ?></p>
-    <div class="mid">
-        <?php get_search_form() ?>
-    </div>
+    <h1 class="page-title mid">"<?php the_search_query(); ?>"</h1>
 </header>
 
 <!-- All posts by date -->
@@ -45,6 +45,11 @@
         <?php else : get_template_part('template-parts/content/content-none') ?>
         <?php endif ?>
 
+    </div>
+
+    <p class="mid">Not what you're looking for?</p>
+    <div class="mid">
+        <?php get_search_form() ?>
     </div>
 
 </main>
