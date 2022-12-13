@@ -100,12 +100,12 @@ button:hover {
   background-color: rgb(122, 195, 220);
 }
 
-input {
+input[type="search"] {
   color: black;
   padding: 0.5rem;
   border-radius: 5px;
-  min-width: 5rem;
   font-size: 1rem;
+  min-width: 28rem;
 }
 
 /* EDGE STYLE /////////////////////////////////////////////////////////////////////////////////////////////*/
