@@ -16,6 +16,11 @@
         ?>
     </h1>
     <p><?php echo "The blog homepage template " ?></p>
+    <form action="">
+        <p>Search for content on this site</p>
+        <input type="search">
+        <input type="submit" value="search" class="button gap">
+    </form>
 </header>
 
 <!-- All posts by date -->

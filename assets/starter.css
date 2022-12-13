@@ -70,6 +70,21 @@ a:hover {
   padding-left: 0;
 }
 
+.button {
+  background-color: lightblue;
+  color: black;
+  padding: 0.5rem;
+  border-radius: 5px;
+  min-width: 5rem;
+  font-size: 1rem;
+  border: 1px solid black;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: rgb(122, 195, 220);
+}
+
 button {
   background-color: lightblue;
   color: black;
@@ -77,10 +92,20 @@ button {
   border-radius: 5px;
   min-width: 5rem;
   font-size: 1rem;
+  border: 1px solid black;
 }
 
 button:hover {
   cursor: pointer;
+  background-color: rgb(122, 195, 220);
+}
+
+input {
+  color: black;
+  padding: 0.5rem;
+  border-radius: 5px;
+  min-width: 5rem;
+  font-size: 1rem;
 }
 
 /* EDGE STYLE /////////////////////////////////////////////////////////////////////////////////////////////*/
