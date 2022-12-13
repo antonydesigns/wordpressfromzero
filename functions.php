@@ -24,4 +24,3 @@ require_once(get_template_directory() . "./inc/functions/func-author.php");
 require_once(get_template_directory() . "./inc/functions/func-post-time.php");
 require_once(get_template_directory() . "./inc/functions/func-post-title.php");
 require_once(get_template_directory() . "./inc/functions/func-post-excerpt.php");
-require_once(get_template_directory() . "./inc/functions/func-read-more.php");

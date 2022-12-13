@@ -33,17 +33,17 @@ $post_link = esc_url(get_permalink());
 $post_title = strip_tags(get_cryptoexplainer_title($x['title_char_limit']));
 $post_thumbnail = get_the_post_thumbnail(null, 'post-thumbnail', array('loading' => 'lazy'));
 $excerpt = get_cryptoexplainer_excerpt($x['excerpt_char_limit']);
-
 ?>
 
 <!-- The Markup -->
 
 <div class="gap">
-
-    <a href="<?php echo esc_url(get_permalink()); ?>">
+    <a href="<?php echo $post_link; ?>">
         <figure class="post-thumbnail">
             <?php echo $post_thumbnail; ?>
         </figure>
+    </a>
+
 </div>
 
 <div class="post-info gap">
