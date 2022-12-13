@@ -6,11 +6,6 @@ Main template file
 */
 ?>
 
-<?php echo "I'm the alpha, so I'm right." ?>
-<?php echo "but I'm the omega so I'm cool" ?>
-<?php echo "Hey, but I'm better than ya'll cos I'm updating this from a branch" ?>
-<?php echo "what's the problem? I'm cooler becos I am from a branch" ?>
-
 <div class="gap">
 
     <div>

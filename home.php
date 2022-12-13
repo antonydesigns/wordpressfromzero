@@ -41,8 +41,12 @@
             <?php endwhile; ?>
         <?php else : get_template_part('template-parts/content/content-none') ?>
         <?php endif ?>
+
     </div>
+
 </main>
+
+<div class="pagination mid gap"> <?php echo crexp_pagination() ?> </div>
 
 
 <?php get_footer(); ?>
