@@ -54,10 +54,10 @@ class Assets
             array('ajaxurl' => admin_url('admin-ajax.php'))
         );
 
-        wp_localize_script(
+        /* wp_localize_script(
             'loadmore',
             'ajax',
             array('ajaxurl' => admin_url('admin-ajax.php'))
-        );
+        ); */
     }
 }

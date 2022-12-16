@@ -21,7 +21,7 @@ function load_more()
     $args = [
         'post_type'      => 'post',
         'post_status'    => 'publish',
-        'posts_per_page' => 2, // Number of posts per page - default
+        'posts_per_page' => 1, // Number of posts per page - default
         'paged'          => $page_no,
     ];
 
