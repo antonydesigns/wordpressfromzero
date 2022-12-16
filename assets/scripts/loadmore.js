@@ -1,6 +1,5 @@
 jQuery().ready(($) => {
   loadMoreBtn = $("#load-more");
-  loadingTextEl = $("#loading-text");
 
   options = {
     root: null,
