@@ -25,6 +25,7 @@ require_once(get_template_directory() . "./inc/functions/func-post-time.php");
 require_once(get_template_directory() . "./inc/functions/func-post-title.php");
 require_once(get_template_directory() . "./inc/functions/func-post-excerpt.php");
 require_once(get_template_directory() . "./inc/functions/func-pagination.php");
+require_once(get_template_directory() . "./inc/functions/func-search-exclude.php");
 
 add_action('wp_ajax_php_ajax_function', 'php_ajax_function');
 add_action('wp_ajax_nopriv_php_ajax_function', 'php_ajax_function');
