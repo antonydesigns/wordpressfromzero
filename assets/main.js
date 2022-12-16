@@ -1,7 +1,5 @@
 jQuery().ready(($) => {
-  $(".button").click(() => {
-    $("form")[1].reset();
-  });
+  console.log($("#searchform")[0]);
 });
 
 jQuery().ready(($) => {

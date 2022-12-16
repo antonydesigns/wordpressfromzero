@@ -24,11 +24,12 @@ global $wp_query;
 <!-- All posts by date -->
 
 <main>
-    <div class="latest-posts cols col-mid">
-        <?php if (have_posts()) : ?>
+    <?php if (have_posts()) : ?>
+        <div class="latest-posts cols">
+
             <?php while (have_posts()) : the_post() ?>
 
-                <article class="post-preview gap" id="post-<?php the_ID(); ?>">
+                <article class="post-preview gap col-mid" id="post-<?php the_ID(); ?>">
 
                     <!-- Standard Content Listing template -->
 
@@ -42,16 +43,14 @@ global $wp_query;
                 </article>
 
             <?php endwhile; ?>
-        <?php else : get_template_part('template-parts/content/content-none') ?>
-        <?php endif ?>
+        </div>
+        <p class="mid">Not what you're looking for?</p>
+        <div class="mid">
+            <?php get_search_form() ?>
+        </div>
 
-    </div>
-
-    <p class="mid">Not what you're looking for?</p>
-    <div class="mid">
-        <?php get_search_form() ?>
-    </div>
-
+    <?php else : get_template_part('template-parts/content/content-none') ?>
+    <?php endif ?>
 </main>
 
 <div class="pagination mid gap"> <?php echo crexp_pagination() ?> </div>
