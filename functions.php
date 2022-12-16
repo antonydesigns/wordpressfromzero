@@ -30,3 +30,4 @@ require_once(get_template_directory() . "./inc/functions/func-search-exclude.php
 // Ajax-related functions
 
 require(get_template_directory() . "./inc/functions/func-ajax-google-me.php");
+require(get_template_directory() . "./inc/functions/func-ajax-loadmore.php");

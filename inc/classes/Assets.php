@@ -40,13 +40,22 @@ class Assets
 
         wp_register_script('main', get_template_directory_uri() . '/assets/main.js', ['jquery'], filemtime(get_template_directory() . '/assets/main.js'), true);
         wp_register_script('google-me', get_template_directory_uri() . '/assets/scripts/google-me.js', ['jquery'], filemtime(get_template_directory() . '/assets/scripts/google-me.js'), true);
+        wp_register_script('loadmore', get_template_directory_uri() . '/assets/scripts/loadmore.js', ['jquery'], filemtime(get_template_directory() . '/assets/scripts/loadmore.js'), true);
+
 
         wp_enqueue_script('jquery');
         wp_enqueue_script('main');
         wp_enqueue_script('google-me');
+        wp_enqueue_script('loadmore');
 
         wp_localize_script(
             'google-me',
+            'ajax',
+            array('ajaxurl' => admin_url('admin-ajax.php'))
+        );
+
+        wp_localize_script(
+            'loadmore',
             'ajax',
             array('ajaxurl' => admin_url('admin-ajax.php'))
         );
