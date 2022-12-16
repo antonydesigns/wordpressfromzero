@@ -15,7 +15,7 @@
     <div class="load-more-content-wrap">
         <div id="load-more-content" class="row">
             <?php
-            load_more(true);
+
 
             // If user is not in editor and on page one, show the load more.
             ?>
