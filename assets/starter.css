@@ -100,7 +100,7 @@ button:hover {
   background-color: rgb(122, 195, 220);
 }
 
-input[type="search"] {
+input {
   color: black;
   padding: 0.5rem;
   border-radius: 5px;

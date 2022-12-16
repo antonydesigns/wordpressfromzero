@@ -40,7 +40,13 @@ class Assets
 
         wp_register_script('main', get_template_directory_uri() . '/assets/main.js', ['jquery'], filemtime(get_template_directory() . '/assets/main.js'), true);
 
-        wp_enqueue_script('main');
         wp_enqueue_script('jquery');
+        wp_enqueue_script('main');
+
+        wp_localize_script(
+            'main',
+            'ajax',
+            array('ajaxurl' => admin_url('admin-ajax.php'))
+        );
     }
 }

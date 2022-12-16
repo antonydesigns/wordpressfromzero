@@ -14,6 +14,9 @@
     <h1 class=" page-title mid">
         Welcome!
     </h1>
+    <p>Hey Google! Describe this person:</p>
+    <input class="gap" id="name" type="text">
+    <div class="" id="describe"></div>
 </header>
 
 <main>
