@@ -1,15 +1,11 @@
 <?php
 
-add_action('wp_ajax_nopriv_load_more', ['load_more']);
-add_action('wp_ajax_load_more', ['load_more']);
+add_action('wp_ajax_load_more', 'load_more');
+add_action('wp_ajax_nopriv_load_more', 'load_more');
 
 
-function load_more(bool $initial_request = false)
+function load_more()
 {
-    if (!$initial_request && !check_ajax_referer('loadmore_post_nonce', 'ajax_nonce', false)) {
-        wp_send_json_error(__('Invalid security token sent.', 'text-domain'));
-        wp_die('0', 400);
-    }
 
     // Check if it's an ajax call.
     $is_ajax_request = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
