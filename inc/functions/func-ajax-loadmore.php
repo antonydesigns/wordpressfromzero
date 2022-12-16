@@ -8,8 +8,7 @@ function load_more()
 {
 
     // Check if it's an ajax call.
-    $is_ajax_request = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-        strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
+    $is_ajax_request = isset($_POST['page']);
     /**
      * Page number.
      * If get_query_var( 'paged' ) is 2 or more, its a number pagination query.
