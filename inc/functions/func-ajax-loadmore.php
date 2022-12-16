@@ -3,7 +3,6 @@
 add_action('wp_ajax_load_more', 'load_more');
 add_action('wp_ajax_nopriv_load_more', 'load_more');
 
-
 function load_more()
 {
 
@@ -14,8 +13,8 @@ function load_more()
      * If get_query_var( 'paged' ) is 2 or more, its a number pagination query.
      * If $_POST['page'] has a value which means its a loadmore request, which will take precedence.
      */
-    $page_no = get_query_var('paged') ? get_query_var('paged') : 1;
-    $page_no = $_POST['page'];
+    // $page_no = get_query_var('paged') ? get_query_var('paged') : 1;
+    $page_no = $_POST['page'] + 1;
 
     // Default Argument.
     $args = [
@@ -55,4 +54,16 @@ function load_more()
     }
 
     wp_reset_postdata();
+}
+
+
+add_action('wp_ajax_test', 'test');
+add_action('wp_ajax_nopriv_test', 'test');
+
+
+function test()
+{
+    $page_no = $_POST['page'] + 1;
+
+    echo 'This is page' . $page_no;
 }

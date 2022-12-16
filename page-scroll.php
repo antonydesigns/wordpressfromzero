@@ -17,18 +17,15 @@
             <?php
 
 
-            // $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-            // echo $paged;
+            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
             $query = new WP_Query([
                 'post_type'      => 'post',
-                'post_status'    => 'publish'
-                // 'posts_per_page' => 2
-                // 'paged' => $paged
+                'post_status'    => 'publish',
+                'posts_per_page' => 1,
+                'paged' => $paged
             ]);
 
             if ($query->have_posts()) {
-
-                require(get_template_directory() . "./inc/functions/a-user-defined-vars.php");
 
                 // Loop Posts.
                 while ($query->have_posts()) {
@@ -41,11 +38,10 @@
                 wp_reset_postdata();
             } else {
                 // Return response as zero, when no post found.
-                wp_die('0');
+                get_template_part('template-parts/content/content-none');
             }
             ?>
         </div>
-        <div class="pagination mid gap"> <?php echo crexp_pagination() ?> </div>
 
         <button id="load-more" data-page="1" class="">
             <span>Load more posts</span>

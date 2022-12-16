@@ -54,6 +54,9 @@
             <?php endwhile;
             wp_reset_postdata(); ?>
         <?php endif ?>
+
+        <div class="pagination mid gap"> <?php echo crexp_pagination() ?> </div>
+
     </div>
 
     <!-- Latest posts by theme (category) -->

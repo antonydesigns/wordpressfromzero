@@ -2,9 +2,6 @@ jQuery().ready(($) => {
   loadMoreBtn = $("#load-more");
   console.log(loadMoreBtn.data("page"));
   totalPagesCount = $("#post-pagination").data("max-pages");
-  // Get page no from data attribute of load-more button.
-  const page = loadMoreBtn.data("page");
-  const nextPage = parseInt(page) + 1; // Increment page count by one.
 
   /**
    * Load more posts.
@@ -20,29 +17,34 @@ jQuery().ready(($) => {
       return;
     }
 
+    let page = loadMoreBtn.data("page");
+    let nextPage = parseInt(page) + 1; // Increment page count by one.
+
+    /* function removeLoadMoreIfOnLastPage(nextPage) {
+      if (nextPage + 1 > totalPagesCount) {
+        loadMoreBtn.empty();
+      }
+    } */
+
     $.ajax({
       url: ajax.ajaxurl,
       type: "post",
       data: {
         page: page,
-        action: "load_more",
+        action: "test",
       },
       success: (response) => {
         loadMoreBtn.data("page", nextPage);
+        console.log(loadMoreBtn.data("page"));
+
         $("#load-more-content").append(response);
-        removeLoadMoreIfOnLastPage(nextPage);
+        //  removeLoadMoreIfOnLastPage(nextPage);
       },
       error: (response) => {
         console.log(response);
       },
     });
   };
-
-  function removeLoadMoreIfOnLastPage(nextPage) {
-    if (nextPage + 1 > totalPagesCount) {
-      loadMoreBtn.empty();
-    }
-  }
 
   loadMoreBtn.click(handleLoadMoreBtnClick);
 }); // close jQuery
