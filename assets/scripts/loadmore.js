@@ -1,7 +1,6 @@
 jQuery().ready(($) => {
   loadMoreBtn = $("#load-more");
   loadingTextEl = $("#loading-text");
-  isRequestProcessing = false;
 
   options = {
     root: null,
@@ -29,12 +28,8 @@ jQuery().ready(($) => {
 
   // Get page no from data attribute of load-more button.
   const page = loadMoreBtn.data("page");
-  if (!page || isRequestProcessing) {
-    return null;
-  }
 
   const nextPage = parseInt(page) + 1; // Increment page count by one.
-  isRequestProcessing = true;
 
   $.ajax({
     url: ajax.ajaxurl,
@@ -47,11 +42,9 @@ jQuery().ready(($) => {
       loadMoreBtn.data("page", nextPage);
       $("#load-more-content").append(response);
       removeLoadMoreIfOnLastPage(nextPage);
-      isRequestProcessing = false;
     },
     error: (response) => {
       console.log(response);
-      isRequestProcessing = false;
     },
   });
 
