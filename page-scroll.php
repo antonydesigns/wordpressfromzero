@@ -20,8 +20,8 @@
             // If user is not in editor and on page one, show the load more.
             ?>
         </div>
-        <button id="load-more" data-page="1" class="load-more-btn my-4 d-flex flex-column mx-auto px-4 py-2 border-0 bg-transparent">
-            <span><?php esc_html_e('Loading...', 'text-domain'); ?></span>
+        <button id="load-more" data-page="1" class="">
+            <span><?php 'Load more posts'; ?></span>
         </button>
     </div>
 
