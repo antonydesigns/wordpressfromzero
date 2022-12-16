@@ -23,7 +23,7 @@ $user_defined_featured_themes = [
  * Set how many articles will be shown on the homepage
  * per set (i.e. a set can be sorted by theme, latest posts, post type, etc.)
  */
-$user_defined_post_count = 3;
+$user_defined_post_count = 2; // changed from 3 when testing ajax infinite scroll
 
 /**
  * By default, each featured theme on the homepage will not display

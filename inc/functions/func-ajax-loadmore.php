@@ -55,9 +55,4 @@ function load_more()
     }
 
     wp_reset_postdata();
-
-
-    if ($is_ajax_request && !$initial_request) {
-        wp_die();
-    }
 }
