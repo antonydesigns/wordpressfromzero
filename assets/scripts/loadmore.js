@@ -16,31 +16,6 @@ jQuery().ready(($) => {
   totalPagesCount = $("#post-pagination").data("max-pages");
 
   /**
-   * Add the IntersectionObserver api, and listen to the load more intersection status.
-   * so that intersectionObserverCallback gets called if the element intersection status changes.
-   *
-   * @type {IntersectionObserver}
-   */
-  const observer = new IntersectionObserver(
-    (entries) => intersectionObserverCallback(entries),
-    options
-  );
-  observer.observe(loadMoreBtn[0]);
-
-  /**
-   * Gets called on initial render with status 'isIntersecting' as false and then
-   * everytime element intersection status changes.
-   *
-   * @param {array} entries No of elements under observation.
-   *
-   */
-  function intersectionObserverCallback(entries) {}
-  {
-    // array of observing elements
-    // The logic is apply for each entry ( in this case it's just one loadmore button )
-  }
-
-  /**
    * Load more posts.
    *
    * 1.Make an ajax request, by incrementing the page no. by one on each request.
