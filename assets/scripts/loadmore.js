@@ -1,5 +1,6 @@
 jQuery().ready(($) => {
   loadMoreBtn = $("#load-more");
+  console.log(loadMoreBtn.data("page"));
   totalPagesCount = $("#post-pagination").data("max-pages");
   // Get page no from data attribute of load-more button.
   const page = loadMoreBtn.data("page");
@@ -27,7 +28,6 @@ jQuery().ready(($) => {
         action: "load_more",
       },
       success: (response) => {
-        console.log(page);
         loadMoreBtn.data("page", nextPage);
         $("#load-more-content").append(response);
         removeLoadMoreIfOnLastPage(nextPage);
@@ -44,5 +44,5 @@ jQuery().ready(($) => {
     }
   }
 
-  loadMoreBtn.click(handleLoadMoreBtnClick());
+  loadMoreBtn.click(handleLoadMoreBtnClick);
 }); // close jQuery
