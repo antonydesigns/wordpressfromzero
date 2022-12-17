@@ -112,8 +112,8 @@ function loadmore2()
     $conditions = [
         'post_type'      => 'post',
         'post_status'    => 'publish',
-        'posts_per_page' => 1,
-        'paged'          => $page_no,
+        // 'posts_per_page' => 1,
+        // 'paged'          => $page_no,
     ];
 
     $custom_query = new WP_Query($conditions);
@@ -121,7 +121,9 @@ function loadmore2()
     if ($custom_query->have_posts()) {
         while ($custom_query->have_posts()) {
             $custom_query->the_post();
+            the_title();
         }
         wp_reset_postdata();
     }
+    wp_die("haha");
 }

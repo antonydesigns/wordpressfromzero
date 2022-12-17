@@ -14,6 +14,7 @@
 
 <div class="load-more-content-wrap">
     <div id="load-more-content">
+        pagescroll
         <?php
 
         /* 
@@ -40,7 +41,7 @@
                 // Return response as zero, when no post found.
                 get_template_part('template-parts/content/content-none');
             } */
-        ?>pagescroll
+        ?>
     </div>
 
     <button id="load-more" data-page="1" class="">

@@ -12,12 +12,12 @@ jQuery().ready(($) => {
    * there will be no further ajax request since there won't be any more posts available.
    */
   const handleLoadMoreBtnClick = () => {
-    if (!loadMoreBtn.length) {
-      return;
-    }
+    //if (!loadMoreBtn.length) {
+    //  return;
+    //}
 
     let page = loadMoreBtn.data("page");
-    let nextPage = parseInt(page) + 1; // Increment page count by one.
+    let nextPage = page + 1; // Increment page count by one.
 
     /* function removeLoadMoreIfOnLastPage(nextPage) {
         if (nextPage + 1 > totalPagesCount) {
@@ -34,12 +34,12 @@ jQuery().ready(($) => {
       },
       success: (response) => {
         loadMoreBtn.data("page", nextPage);
-        $("#load-more-content").append(response);
+        $("#load-more-content").prepend(response);
         //  removeLoadMoreIfOnLastPage(nextPage);
       },
-      //error: (response) => {
-      //  console.log(response);
-      //},
+      error: (response) => {
+        console.log(response);
+      },
     });
   };
 
