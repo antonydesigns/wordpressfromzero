@@ -28,7 +28,7 @@ $author = get_queried_object();
 
 <main class="cols col-mid">
     <?php if (have_posts()) : ?>
-        <?php while (have_posts()) : ?>
+        <?php while (have_posts()) : the_post() ?>
 
             <article class="post-preview gap" id="post-<?php the_ID(); ?>">
 

@@ -1,7 +1,6 @@
 jQuery().ready(($) => {
   loadMoreBtn = $("#load-more");
-  console.log(loadMoreBtn.data("page"));
-  totalPagesCount = $("#post-pagination").data("max-pages");
+  // totalPagesCount = $("#post-pagination").data("max-pages");
 
   /**
    * Load more posts.
@@ -28,21 +27,19 @@ jQuery().ready(($) => {
 
     $.ajax({
       url: ajax.ajaxurl,
-      type: "post",
+      //type: "post",
       data: {
         page: page,
-        action: "loadmore",
+        action: "loadmore2",
       },
       success: (response) => {
         loadMoreBtn.data("page", nextPage);
-        console.log(loadMoreBtn.data("page"));
-
         $("#load-more-content").append(response);
         //  removeLoadMoreIfOnLastPage(nextPage);
       },
-      error: (response) => {
-        console.log(response);
-      },
+      //error: (response) => {
+      //  console.log(response);
+      //},
     });
   };
 

@@ -59,22 +59,15 @@ add_action('wp_ajax_nopriv_loadmore', 'loadmore');
 
 function loadmore()
 {
-    // ..
-    // Check if it's an ajax call.
-    $is_ajax_request = isset($_POST['page']);
-    /**
-     * Page number.
-     * If get_query_var( 'paged' ) is 2 or more, its a number pagination query.
-     * If $_POST['page'] has a value which means its a loadmore request, which will take precedence.
-     */
-    // $page_no = get_query_var('paged') ? get_query_var('paged') : 1;
-    $page_no = $_POST['page'] + 1;
 
-    // Default Argument.
+    // $page_no = get_query_var('paged') ? get_query_var('paged') : 1;
+    $page_no = $_REQUEST['page'];
+
+
     $args = [
         'post_type'      => 'post',
         'post_status'    => 'publish',
-        'posts_per_page' => 1, // Number of posts per page - default
+        'posts_per_page' => 1,
         'paged'          => $page_no,
     ];
 
@@ -82,30 +75,53 @@ function loadmore()
 
     if ($query->have_posts()) {
 
-        require(get_template_directory() . "./inc/functions/a-user-defined-vars.php");
+        // require(get_template_directory() . "./inc/functions/a-user-defined-vars.php");
 
 
         // Loop Posts.
         while ($query->have_posts()) {
             $query->the_post();
-            locate_template('template-parts/content/content-listing.php', true, false, [
-                'title_char_limit' => $title_char_limit,
-                'excerpt_char_limit' => $excerpt_char_limit,
-            ]);
+            the_title();
+            /* locate_template('template-parts/content/content-listing.php', true, false, [
+                //'title_char_limit' => $title_char_limit,
+                //'excerpt_char_limit' => $excerpt_char_limit,
+            ]); */
         }
 
         // Pagination for Google.
-        if (!$is_ajax_request) {
+        /* if (!$is_ajax_request) {
             $total_pages = $query->max_num_pages;
             get_template_part('template-parts/pagination', null, [
                 'total_pages'  => $total_pages,
                 'current_page' => $page_no,
             ]);
-        }
-    } else {
-        // Return response as zero, when no post found.
-        wp_die('0');
+        } */
     }
 
     wp_reset_postdata();
+}
+
+add_action('wp_ajax_loadmore2', 'loadmore2');
+add_action('wp_ajax_nopriv_loadmore2', 'loadmore2');
+
+function loadmore2()
+{
+    $page_no = $_REQUEST['page'];
+
+
+    $conditions = [
+        'post_type'      => 'post',
+        'post_status'    => 'publish',
+        'posts_per_page' => 1,
+        'paged'          => $page_no,
+    ];
+
+    $custom_query = new WP_Query($conditions);
+
+    if ($custom_query->have_posts()) {
+        while ($custom_query->have_posts()) {
+            $custom_query->the_post();
+        }
+        wp_reset_postdata();
+    }
 }

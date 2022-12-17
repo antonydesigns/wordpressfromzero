@@ -9,14 +9,14 @@
 
 <?php get_header(); ?>
 
-<div class="container">
-    <h1 class="mb-4">Loadmore demo</h1>
 
-    <div class="load-more-content-wrap">
-        <div id="load-more-content" class="row">
-            <?php
+<h1>Loadmore demo</h1>
 
+<div class="load-more-content-wrap">
+    <div id="load-more-content">
+        <?php
 
+        /* 
             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
             $query = new WP_Query([
                 'post_type'      => 'post',
@@ -39,15 +39,14 @@
             } else {
                 // Return response as zero, when no post found.
                 get_template_part('template-parts/content/content-none');
-            }
-            ?>
-        </div>
-
-        <button id="load-more" data-page="1" class="">
-            <span>Load more posts</span>
-        </button>
+            } */
+        ?>pagescroll
     </div>
 
+    <button id="load-more" data-page="1" class="">
+        <span>Load more posts</span>
+    </button>
 </div>
+
 
 <?php get_footer(); ?>
