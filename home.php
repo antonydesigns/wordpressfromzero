@@ -22,8 +22,7 @@ $query = new WP_Query([
 
 <header class="">
     <h1 class=" page-title mid">
-        <?php single_post_title()
-        ?>
+        <?php single_post_title() ?>
     </h1>
     <p><?php echo "The blog homepage template " ?></p>
     <div class="mid">
@@ -42,6 +41,11 @@ $query = new WP_Query([
                 $query->the_post() ?>
 
                 <article class="post-preview gap">
+
+                    <?php echo '<pre>';
+                    echo "paged is " . $paged;
+                    echo  '</pre>'; ?>
+
 
                     <!-- Initial content listing -->
 

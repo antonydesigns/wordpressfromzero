@@ -8,13 +8,13 @@ function loadmore()
 
     // $page_no = get_query_var('paged') ? get_query_var('paged') : 1;
 
-    $page_no = $_POST['page'] + 1;
+    $paged = $_POST['page'] + 1;
 
     $args = [
         'post_type'      => 'post',
         'post_status'    => 'publish',
         'posts_per_page' => 3,
-        'paged'          => $page_no,
+        'paged'          => $paged,
     ];
 
     $query = new WP_Query($args);
@@ -29,6 +29,11 @@ function loadmore()
             $query->the_post() ?>
 
             <article class="post-preview gap">
+
+                <?php echo '<pre>';
+                echo "paged is " . $paged;
+                echo  '</pre>'; ?>
+
 
                 <?php
                 locate_template('template-parts/content/content-listing.php', true, false, [
