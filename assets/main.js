@@ -1,8 +1,4 @@
 jQuery().ready(($) => {
-  console.log($("#searchform")[0]);
-});
-
-jQuery().ready(($) => {
   console.log("I wanna do some magic");
   $("#name").on("keypress", (e) => {
     if (e.which != 13) {

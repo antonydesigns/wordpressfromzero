@@ -6,7 +6,17 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php get_header();
+
+// Preparing for a custom WP Query...
+
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$query = new WP_Query([
+    'post_type'      => 'post',
+    'post_status'    => 'publish',
+    'posts_per_page' => 3,
+    'paged' => $paged
+]); ?>
 
 <!-- Title and intro content -->
 
@@ -21,16 +31,19 @@
     </div>
 </header>
 
-<!-- All posts by date -->
+<!-- Show only 3 most recent posts -->
 
 <main>
-    <div class="latest-posts cols col-mid">
-        <?php if (have_posts()) : ?>
-            <?php while (have_posts()) : the_post() ?>
+    <div class="latest-posts cols col-mid" id="load-more-content">
 
-                <article class="post-preview gap" id="post-<?php the_ID(); ?>">
+        <?php
+        if ($query->have_posts()) :
+            while ($query->have_posts()) :
+                $query->the_post() ?>
 
-                    <!-- Standard Content Listing template -->
+                <article class="post-preview gap">
+
+                    <!-- Initial content listing -->
 
                     <?php
                     locate_template('template-parts/content/content-listing.php', true, false, [
@@ -39,17 +52,23 @@
                     ]);
                     ?>
 
+                    <!-- New appended content listing goes here -->
+
                 </article>
 
-            <?php endwhile; ?>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
+
         <?php else : get_template_part('template-parts/content/content-none') ?>
         <?php endif ?>
 
     </div>
 
+    <button id="load-more" data-page="1" class="" data-max-pages="<?php echo $query->max_num_pages ?>">
+        <span>Load more posts</span>
+    </button>
+
+
 </main>
-
-<div class="pagination mid gap"> <?php echo crexp_pagination() ?> </div>
-
 
 <?php get_footer(); ?>
