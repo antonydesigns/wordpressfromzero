@@ -30,11 +30,6 @@ function loadmore()
 
             <article class="post-preview gap">
 
-                <?php echo '<pre>';
-                echo "paged is " . $paged;
-                echo  '</pre>'; ?>
-
-
                 <?php
                 locate_template('template-parts/content/content-listing.php', true, false, [
                     'title_char_limit' => $title_char_limit,

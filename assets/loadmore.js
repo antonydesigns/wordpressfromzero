@@ -2,6 +2,7 @@ jQuery().ready(($) => {
   class Loadmore {
     constructor() {
       this.ajaxurl = ajax.ajaxurl;
+      this.hello = "hello";
       this.loadMoreBtn = $("#load-more");
       this.totalPagesCount = this.loadMoreBtn.data("max-pages");
 
@@ -16,6 +17,7 @@ jQuery().ready(($) => {
 
     handleLoadMoreBtnClick() {
       let page = this.loadMoreBtn.data("page");
+      console.log(this.hello);
 
       $.ajax({
         url: this.ajaxurl,

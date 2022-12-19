@@ -42,11 +42,6 @@ $query = new WP_Query([
 
                 <article class="post-preview gap">
 
-                    <?php echo '<pre>';
-                    echo "paged is " . $paged;
-                    echo  '</pre>'; ?>
-
-
                     <!-- Initial content listing -->
 
                     <?php
