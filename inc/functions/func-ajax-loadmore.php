@@ -3,8 +3,17 @@
 add_action('wp_ajax_loadmore', 'loadmore');
 add_action('wp_ajax_nopriv_loadmore', 'loadmore');
 
+
+
+
+
 function loadmore()
 {
+
+    if (!check_ajax_referer('loadmore_nonce', 'ajaxnonce', false)) {
+        wp_send_json_error(__('Invalid security token sent.', 'text-domain'));
+        wp_die('0', 400);
+    }
 
     // $page_no = get_query_var('paged') ? get_query_var('paged') : 1;
 

@@ -55,7 +55,10 @@ class Assets
         wp_localize_script(
             'loadmore',
             'ajax',
-            array('ajaxurl' => admin_url('admin-ajax.php'))
+            array(
+                'ajaxurl' => admin_url('admin-ajax.php'),
+                'ajaxnonce' => wp_create_nonce('loadmore_nonce')
+            )
         );
     }
 }
