@@ -5,17 +5,34 @@ jQuery().ready(($) => {
       this.ajaxnonce = ajax.ajaxnonce;
       this.loadMoreBtn = $("#load-more");
       this.totalPagesCount = this.loadMoreBtn.data("max-pages");
-
-      this.loadMoreBtn.click(() => {
-        this.handleLoadMoreBtnClick();
-      });
+      this.options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1.0,
+      };
 
       if (!this.loadMoreBtn.length) {
         return;
+      } else {
+        /* this.loadMoreBtn.click(() => {
+          this.handleLoadMorePosts();
+        }); */
+        const observer = new IntersectionObserver((entries) => {
+          this.intersectionObserverCallback(entries), this.options;
+        });
+        observer.observe(this.loadMoreBtn[0]);
       }
     }
 
-    handleLoadMoreBtnClick() {
+    intersectionObserverCallback(entries) {
+      entries.forEach((entry) => {
+        if (entry?.isIntersecting) {
+          this.handleLoadMorePosts();
+        }
+      });
+    }
+
+    handleLoadMorePosts() {
       let page = this.loadMoreBtn.data("page");
       $.ajax({
         url: this.ajaxurl,
@@ -26,11 +43,8 @@ jQuery().ready(($) => {
           ajaxnonce: this.ajaxnonce,
         },
         success: (response) => {
-          console.log(page);
           this.loadMoreBtn.data("page", page + 1);
           $("#load-more-content").append(response);
-          console.log("this page: " + page);
-          console.log("total page: " + this.totalPagesCount);
           this.removeLoadMoreOnLastPage(page);
         },
         error: (response) => {
