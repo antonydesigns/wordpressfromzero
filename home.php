@@ -11,12 +11,22 @@
 // Preparing for a custom WP Query...
 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 $query = new WP_Query([
     'post_type'      => 'post',
     'post_status'    => 'publish',
     'posts_per_page' => 3,
     'paged' => $paged
-]); ?>
+]);
+
+
+$pagination_args = [
+    'before_page_number' => '<span class="pagination-number gap">',
+    'after_page_number' => '</span>',
+    'total' => $query->max_num_pages,
+    'current' => $paged
+];
+?>
 
 <!-- Title and intro content -->
 
@@ -51,11 +61,16 @@ $query = new WP_Query([
                     ]);
                     ?>
 
-                    <!-- New appended content listing goes here -->
 
                 </article>
 
+                <!-- New appended content listing goes here -->
+
             <?php endwhile;
+            $is_ajax_request = isset($_POST['page']);
+
+            // Pagination for Google if is NOT ajax request
+
             wp_reset_postdata(); ?>
 
         <?php else : get_template_part('template-parts/content/content-none') ?>
@@ -64,12 +79,14 @@ $query = new WP_Query([
     </div>
 
     <div class="mid">
-        <button id="load-more" data-page="1" class="load-more-btn" data-max-pages="<?php echo $query->max_num_pages ?>">
+        <button id="load-more" data-page="<?php echo $paged ?>" class="load-more-btn" data-max-pages="<?php echo $query->max_num_pages ?>">
             <span>Loading..</span>
         </button>
     </div>
 
-
+    <div class="mid invis">
+        <?php echo paginate_links($pagination_args); ?>
+    </div>
 
 </main>
 

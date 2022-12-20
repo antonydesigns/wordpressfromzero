@@ -16,7 +16,7 @@
 }
 
 .invis {
-  display: none;
+  opacity: 0;
 }
 
 .test {

@@ -14,13 +14,13 @@ jQuery().ready(($) => {
       if (!this.loadMoreBtn.length) {
         return;
       } else {
-        /* this.loadMoreBtn.click(() => {
+        this.loadMoreBtn.click(() => {
           this.handleLoadMorePosts();
-        }); */
-        const observer = new IntersectionObserver((entries) => {
+        });
+        /* const observer = new IntersectionObserver((entries) => {
           this.intersectionObserverCallback(entries), this.options;
         });
-        observer.observe(this.loadMoreBtn[0]);
+        observer.observe(this.loadMoreBtn[0]); */
       }
     }
 
@@ -60,5 +60,5 @@ jQuery().ready(($) => {
     };
   }
 
-  const loadmore = new Loadmore();
+  new Loadmore();
 }); // close jQuery

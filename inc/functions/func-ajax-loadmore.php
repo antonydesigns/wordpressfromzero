@@ -4,15 +4,19 @@ add_action('wp_ajax_loadmore', 'loadmore');
 add_action('wp_ajax_nopriv_loadmore', 'loadmore');
 
 
+
+
 function loadmore()
 {
+    $is_ajax_request = isset($_POST['page']);
 
-    if (!check_ajax_referer('loadmore_nonce', 'ajaxnonce', false)) {
+
+    if (!$is_ajax_request && !check_ajax_referer('loadmore_nonce', 'ajaxnonce', false)) {
         wp_send_json_error(__('Invalid security token sent.', 'text-domain'));
         wp_die('0', 400);
     }
 
-    // $page_no = get_query_var('paged') ? get_query_var('paged') : 1;
+    // Ajax request activated
 
     $paged = $_POST['page'] + 1;
 
@@ -46,14 +50,6 @@ function loadmore()
 <?php
         endwhile;
         wp_reset_postdata();
-
-        // Pagination for Google.
-        if (!$is_ajax_request) {
-            /* get_template_part('template-parts/pagination', null, [
-                'total_pages'  => $total_pages,
-                'current_page' => $page_no,
-            ]); */
-        } else wp_die();
     endif;
     wp_die();
 }
