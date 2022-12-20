@@ -63,9 +63,12 @@ $query = new WP_Query([
 
     </div>
 
-    <button id="load-more" data-page="1" class="" data-max-pages="<?php echo $query->max_num_pages ?>">
-        <span>Load more posts</span>
-    </button>
+    <div class="mid">
+        <button id="load-more" data-page="1" class="load-more-btn" data-max-pages="<?php echo $query->max_num_pages ?>">
+            <span>Loading..</span>
+        </button>
+    </div>
+
 
 
 </main>
