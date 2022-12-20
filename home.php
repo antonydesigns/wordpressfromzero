@@ -67,7 +67,6 @@ $pagination_args = [
                 <!-- New appended content listing goes here -->
 
             <?php endwhile;
-            $is_ajax_request = isset($_POST['page']);
 
             // Pagination for Google if is NOT ajax request
 
@@ -79,14 +78,23 @@ $pagination_args = [
     </div>
 
     <div class="mid">
-        <button id="load-more" data-page="<?php echo $paged ?>" class="load-more-btn" data-max-pages="<?php echo $query->max_num_pages ?>">
+        <div id="load-more" data-page="<?php echo $paged ?>" class="load-more-btn" data-max-pages="<?php echo $query->max_num_pages ?>">
             <span>Loading..</span>
-        </button>
+        </div>
     </div>
 
-    <div class="mid invis">
-        <?php echo paginate_links($pagination_args); ?>
-    </div>
+    <?php
+    $is_ajax_request = !empty($_POST['page']);
+    if (!$is_ajax_request) :
+    ?>
+
+        <div class="mid" id="home-pagination">
+            <?php echo paginate_links($pagination_args); ?>
+        </div>
+
+    <?php endif ?>
+
+
 
 </main>
 

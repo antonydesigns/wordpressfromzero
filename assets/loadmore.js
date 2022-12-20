@@ -1,6 +1,7 @@
 jQuery().ready(($) => {
   class Loadmore {
     constructor() {
+      this.pagination = $("#home-pagination");
       this.ajaxurl = ajax.ajaxurl;
       this.ajaxnonce = ajax.ajaxnonce;
       this.loadMoreBtn = $("#load-more");
@@ -14,13 +15,13 @@ jQuery().ready(($) => {
       if (!this.loadMoreBtn.length) {
         return;
       } else {
-        this.loadMoreBtn.click(() => {
+        /* this.loadMoreBtn.click(() => {
           this.handleLoadMorePosts();
-        });
-        /* const observer = new IntersectionObserver((entries) => {
+        }); */
+        const observer = new IntersectionObserver((entries) => {
           this.intersectionObserverCallback(entries), this.options;
         });
-        observer.observe(this.loadMoreBtn[0]); */
+        observer.observe(this.loadMoreBtn[0]);
       }
     }
 
@@ -43,6 +44,7 @@ jQuery().ready(($) => {
           ajaxnonce: this.ajaxnonce,
         },
         success: (response) => {
+          this.pagination.addClass("invis");
           this.loadMoreBtn.data("page", page + 1);
           $("#load-more-content").append(response);
           this.removeLoadMoreOnLastPage(page);
