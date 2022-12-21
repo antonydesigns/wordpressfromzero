@@ -21,10 +21,6 @@ $header_menu_items = wp_get_nav_menu_items($header_menu_id); // returns array
         <?php foreach ($header_menu_items as $item) : ?>
             <?php if (!$item->menu_item_parent) :  // Filter for all PARENT ITEMS 
 
-                // TODO: When parent, then list down its child items
-                // HOW: using the current parent's id ($item->ID)
-                // and matching the $item->ID with the $item->menu_item_parent
-
                 $child_menu_items = $menus->get_child_menu_items($header_menu_items, $item->ID);
                 $has_children = !empty($child_menu_items) && is_array($child_menu_items); ?>
 
