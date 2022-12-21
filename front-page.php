@@ -23,17 +23,16 @@
     <?php
     $conditions = [
         'post_type' => 'post',
-        'post_status' => 'publish'
+        'post_status' => 'publish',
+        'posts_per_page' => 6
     ];
     $custom_query = new WP_Query($conditions); ?>
 
     <div class="latest-posts cols col-mid">
         <?php if ($custom_query->have_posts()) :
-            $counter = 0;
         ?>
-            <?php while ($custom_query->have_posts() && $counter < $user_defined_post_count) :
+            <?php while ($custom_query->have_posts()) :
                 $custom_query->the_post();
-                $counter++;
             ?>
 
                 <article class="post-preview gap" id="post-<?php the_ID(); ?>">
@@ -66,13 +65,13 @@
         $conditions = [
             'post_type' => 'post',
             'post_status' => 'publish',
-            'category_name' => $theme
+            'category_name' => $theme,
+            'posts_per_page' => 6
         ];
         $custom_query = new WP_Query($conditions); ?>
 
 
-        <?php if ($custom_query->have_posts() && $custom_query->found_posts >= $posts_per_theme) :
-            $counter = 0; ?>
+        <?php if ($custom_query->have_posts() && $custom_query->found_posts >= $posts_per_theme) : ?>
 
             <header class="">
                 <h1 class="theme-title mid">
@@ -82,11 +81,10 @@
 
             <div class="by-theme cols col-mid">
 
-                <?php while ($custom_query->have_posts() && $counter < $user_defined_post_count) : ?>
+                <?php while ($custom_query->have_posts()) : ?>
 
                     <article class="post-preview gap" id="post-<?php the_ID(); ?>">
-                        <?php $custom_query->the_post();
-                        $counter++; ?>
+                        <?php $custom_query->the_post(); ?>
 
                         <!-- Standard Content Listing template -->
 
