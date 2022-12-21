@@ -62,5 +62,5 @@ jQuery().ready(($) => {
     };
   }
 
-  // new Loadmore();
+  new Loadmore();
 }); // close jQuery

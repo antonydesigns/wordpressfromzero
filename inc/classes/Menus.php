@@ -53,7 +53,7 @@ class Menus
     {
         // Loop gets activated for each Parent Item with an ID.
         // The loop looks at each item's "menu_item_parent" (id)  
-        //      without knowing if it's a child or parent
+        // without knowing if it's a child or parent
         // If the item's "menu_item_parent" id matches with current Parent Item ID
         // then that item is the Parent's child items.
         // gets inserted into $child_menu_items array.  

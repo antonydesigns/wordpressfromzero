@@ -26,5 +26,5 @@ require_once(get_template_directory() . "./inc/functions/func-post-title.php");
 require_once(get_template_directory() . "./inc/functions/func-post-excerpt.php");
 require_once(get_template_directory() . "./inc/functions/func-pagination.php");
 require_once(get_template_directory() . "./inc/functions/func-search-exclude.php");
-require_once(get_template_directory() . "./inc/functions/func-ajax-google-me.php");
-require_once(get_template_directory() . "./inc/functions/func-ajax-loadmore.php");
+get_template_part("inc/functions/func-ajax-google-me");
+get_template_part("inc/functions/func-ajax-loadmore");

@@ -31,7 +31,7 @@ Theme header
     get_template_part("template-parts/logo"); ?>
 
     <?php // NAVBAR
-    include_once(get_template_directory() . "./template-parts/navbar.php") ?>
+    get_template_part("template-parts/navbar"); ?>
 
     <main class="global-container">
 

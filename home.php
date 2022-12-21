@@ -15,7 +15,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $query = new WP_Query([
     'post_type'      => 'post',
     'post_status'    => 'publish',
-    'posts_per_page' => 6,
+    'posts_per_page' => 3,
     'paged' => $paged
 ]);
 
@@ -87,8 +87,7 @@ $pagination_args = [
     $is_ajax_request = !empty($_POST['page']);
     if (!$is_ajax_request) :
     ?>
-
-        <div class="mid" id="home-pagination">
+        <div class="mid gap" id="home-pagination">
             <?php echo paginate_links($pagination_args); ?>
         </div>
 
