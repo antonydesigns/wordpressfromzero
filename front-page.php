@@ -39,12 +39,8 @@
 
                     <!-- Standard Content Listing template -->
 
-                    <?php
-                    locate_template('template-parts/content/content-listing.php', true, false, [
-                        'title_char_limit' => $title_char_limit,
-                        'excerpt_char_limit' => $excerpt_char_limit,
-                    ]);
-                    ?>
+                    <?php get_template_part('template-parts/content/content-listing'); ?>
+
                 </article>
 
             <?php endwhile;
@@ -88,10 +84,8 @@
 
                         <!-- Standard Content Listing template -->
 
-                        <?php locate_template('template-parts/content/content-listing.php', true, false, [
-                            'title_char_limit' => $title_char_limit,
-                            'excerpt_char_limit' => $excerpt_char_limit,
-                        ]); ?>
+                        <?php get_template_part('template-parts/content/content-listing'); ?>
+
 
                     </article>
 

@@ -8,14 +8,7 @@
  * @package CryptoExplainer
  */
 
-
-$x = wp_parse_args(
-    $args,
-    [
-        'title_char_limit' => 60,
-        'excerpt_char_limit' => 200
-    ]
-) // default value
+require(get_template_directory() . "./inc/functions/a-user-defined-vars.php");
 ?>
 
 <?php // Loading post meta-data
@@ -30,9 +23,9 @@ $datetime_val = $post_date['datetime_val'];
 $date_archive_permalink = $post_date['date_archive_permalink'];
 
 $post_link = esc_url(get_permalink());
-$post_title = strip_tags(get_cryptoexplainer_title($x['title_char_limit']));
+$post_title = strip_tags(get_cryptoexplainer_title($title_char_limit));
 $post_thumbnail = get_the_post_thumbnail(null, 'post-thumbnail', array('loading' => 'lazy'));
-$excerpt = get_cryptoexplainer_excerpt($x['excerpt_char_limit']);
+$excerpt = get_cryptoexplainer_excerpt($excerpt_char_limit);
 ?>
 
 <!-- The Markup -->
