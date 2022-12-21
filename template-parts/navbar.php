@@ -8,11 +8,6 @@ $header_menu_items = wp_get_nav_menu_items($header_menu_id); // returns array
 
 ?>
 
-<!-- 
-    Navbar is divided into three (or more) levels (parent > child > grandchild).
-    Reuse the loop where necessary.
- -->
-
 <?php if (!empty($header_menu_items) && is_array($header_menu_items)) :  // if empty, doesn't print out anything
 ?>
 
