@@ -11,7 +11,6 @@ get_header();
 ?>
 
 <!-- Title and intro content -->
-
 <header class="">
     <h1 class="single-term-title mid">
         <?php

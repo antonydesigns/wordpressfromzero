@@ -70,7 +70,7 @@
 
             <header class="">
                 <h1 class="theme-title mid">
-                    <?php echo $theme ?>
+                    <a href="<?php echo get_home_url() . "/category/" . strtolower($theme) ?>"><?php echo $theme ?></a>
                 </h1>
             </header>
 
