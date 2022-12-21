@@ -53,7 +53,6 @@
     <?php
 
     $themes = $user_defined_featured_themes;
-    $post_count = $user_defined_post_count;
     $posts_per_theme = $user_defined_posts_per_theme;
 
     foreach ($themes as $theme) :

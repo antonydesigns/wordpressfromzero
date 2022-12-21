@@ -26,7 +26,7 @@ Blog single page template
             $updated_datetime_val = $post_date['updated_datetime_val'];
             $date_archive_permalink = $post_date['date_archive_permalink'];
 
-            $post_title = strip_tags(get_the_title());
+            $post_title = wp_strip_all_tags(get_the_title());
             $post_thumbnail = get_the_post_thumbnail(null, 'post-thumbnail', array('loading' => 'lazy'));
             $excerpt = get_cryptoexplainer_excerpt($excerpt_char_limit);
             ?>
