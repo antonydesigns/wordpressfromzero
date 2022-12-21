@@ -28,8 +28,8 @@ class Menus
     {
         register_nav_menus(
             [
-                'cryptoexplainer_header_menu' => esc_html__('Header Menu', 'cryptoexplainer'), // editor view
-                'cryptoexplainer_footer_menu' => esc_html__('Footer Menu', 'cryptoexplainer')
+                'cryptoexplainer_header_menu' => esc_html('Header Menu'), // editor view
+                'cryptoexplainer_footer_menu' => esc_html('Footer Menu')
             ]
         );
     }
