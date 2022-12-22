@@ -15,7 +15,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $query = new WP_Query([
     'post_type'      => 'post',
     'post_status'    => 'publish',
-    'posts_per_page' => 3,
+    'posts_per_page' => get_option('posts_per_page'),
     'paged' => $paged
 ]);
 
@@ -40,7 +40,7 @@ $pagination_args = [
     </div>
 </header>
 
-<!-- Show only 3 most recent posts -->
+<!-- Show only 20 most recent posts -->
 
 <main>
     <div class="latest-posts cols col-mid" id="load-more-content">
@@ -63,8 +63,6 @@ $pagination_args = [
 
             <?php endwhile;
 
-            // Pagination for Google if is NOT ajax request
-
             wp_reset_postdata(); ?>
 
         <?php else : get_template_part('template-parts/content/content-none') ?>
@@ -78,15 +76,11 @@ $pagination_args = [
         </div>
     </div>
 
-    <?php
-    $is_ajax_request = !empty($_POST['page']);
-    if (!$is_ajax_request) :
-    ?>
-        <div class="mid gap" id="home-pagination">
-            <?php echo paginate_links($pagination_args); ?>
-        </div>
+    <div class="mid gap" id="home-pagination">
+        <?php echo paginate_links($pagination_args);
+        ?>
+    </div>
 
-    <?php endif ?>
 
 
 
