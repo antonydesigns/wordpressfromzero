@@ -59,11 +59,10 @@ $pagination_args = [
 
                 </article>
 
-                <!-- New appended content listing goes here -->
-
             <?php endwhile;
-
             wp_reset_postdata(); ?>
+
+            <!-- New appended content listing goes here -->
 
         <?php else : get_template_part('template-parts/content/content-none') ?>
         <?php endif ?>
