@@ -49,10 +49,7 @@ get_header();
 </main>
 
 <div class="mid gap" id="home-pagination">
-    <?php echo paginate_links([
-        'before_page_number' => '<span class="pagination-number gap">',
-        'after_page_number' => '</span>'
-    ]);
+    <?php echo crexp_pagination();
     ?>
 </div>
 
