@@ -13,6 +13,8 @@ function cryptoexplainer_breadcrumbs()
             $catcount++;
         }
     }
+
+
     echo '<li class="breadcrumb-list" aria-current="page">' . get_the_title() . '</li>';
     echo '</ol>';
     echo '</nav>';

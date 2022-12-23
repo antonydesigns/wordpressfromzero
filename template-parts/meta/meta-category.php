@@ -10,24 +10,26 @@
 
 
 $the_post_id   = get_the_ID();
-$post_category = wp_get_post_terms($the_post_id, ['category']);
+$post_category = wp_get_post_terms($the_post_id, 'category', array('orderby' => 'parent', 'order' => 'ASC'));
 if (empty($post_category) || !is_array($post_category)) {
     return;
 }
 
-?>
+echo '<!-- DEBUG -->';
+echo '<pre>';
+print_r($post_category);
+echo  '</pre>';
 
-<?php
-foreach ($post_category as $key => $post_cat) : ?>
+$count = 0;
+
+foreach ($post_category as $post_cat) :
+    $count++; ?>
     <a class="category-link" href="<?php echo esc_url(get_term_link($post_cat)) ?>">
-        <?php
-        if ($post_cat !== end($post_cat)) {
-            echo  esc_html($post_cat->name) . ','; // Custom Separator 
-        } else {
-            echo  esc_html($post_cat->name);
-        }
-        ?>
+        <?php echo esc_html($post_cat->name); ?>
     </a>
+    <?php if ($count < count($post_category)) {
+        echo '>';
+    } ?>
 <?php endforeach
 
 // DEBUG MODE: Check the properties in WP_Term Object array
