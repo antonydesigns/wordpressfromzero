@@ -36,7 +36,10 @@ Blog single page template
             <div class="mid left">
                 <header class='post-header'>
                     <div class="category gap">
-                        <?php get_template_part('template-parts/meta/meta-category'); ?>
+                        <?php // get_template_part('template-parts/meta/meta-category'); 
+                        ?>
+                        <?php cryptoexplainer_breadcrumbs();
+                        ?>
                     </div>
                     <h2 class="post-title gap"><?php echo $post_title; ?></h2>
                     <div class=" gap"><?php echo $excerpt; ?></div>

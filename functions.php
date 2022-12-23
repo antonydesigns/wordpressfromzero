@@ -28,3 +28,4 @@ require_once(get_template_directory() . "./inc/functions/func-pagination.php");
 require_once(get_template_directory() . "./inc/functions/func-search-exclude.php");
 get_template_part("inc/functions/func-ajax-google-me");
 get_template_part("inc/functions/func-ajax-loadmore");
+get_template_part("template-parts/meta/meta-breadcrumbs");

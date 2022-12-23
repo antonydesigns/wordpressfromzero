@@ -56,3 +56,7 @@ $excerpt = get_cryptoexplainer_excerpt($excerpt_char_limit);
         </p>
     </div>
 </div>
+
+<?php
+
+?>
