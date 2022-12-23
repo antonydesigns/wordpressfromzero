@@ -10,7 +10,7 @@
 
 
 $the_post_id   = get_the_ID();
-$article_terms = wp_get_post_terms($the_post_id, ['post_tag']);
+$article_tags = wp_get_post_terms($the_post_id, ['post_tag']);
 if (empty($article_terms) || !is_array($article_terms)) {
     return;
 }
