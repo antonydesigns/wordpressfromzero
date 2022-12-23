@@ -10,21 +10,21 @@
 
 
 $the_post_id   = get_the_ID();
-$article_category = wp_get_post_terms($the_post_id, ['category']);
-if (empty($article_terms) || !is_array($article_terms)) {
+$post_category = wp_get_post_terms($the_post_id, ['category']);
+if (empty($post_category) || !is_array($post_category)) {
     return;
 }
 
 ?>
 
 <?php
-foreach ($article_terms as $key => $article_term) : ?>
-    <a class="category-link" href="<?php echo esc_url(get_term_link($article_term)) ?>">
+foreach ($post_category as $key => $post_cat) : ?>
+    <a class="category-link" href="<?php echo esc_url(get_term_link($post_cat)) ?>">
         <?php
-        if ($article_term !== end($article_terms)) {
-            echo  esc_html($article_term->name) . ','; // Custom Separator 
+        if ($post_cat !== end($post_cat)) {
+            echo  esc_html($post_cat->name) . ','; // Custom Separator 
         } else {
-            echo  esc_html($article_term->name);
+            echo  esc_html($post_cat->name);
         }
         ?>
     </a>
