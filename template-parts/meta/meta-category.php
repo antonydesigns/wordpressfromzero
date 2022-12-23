@@ -15,11 +15,6 @@ if (empty($post_category) || !is_array($post_category)) {
     return;
 }
 
-echo '<!-- DEBUG -->';
-echo '<pre>';
-print_r($post_category);
-echo  '</pre>';
-
 $count = 0;
 
 foreach ($post_category as $post_cat) :
