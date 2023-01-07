@@ -3,9 +3,6 @@
 add_action('wp_ajax_loadmore', 'loadmore');
 add_action('wp_ajax_nopriv_loadmore', 'loadmore');
 
-
-
-
 function loadmore()
 {
     $is_ajax_request = isset($_POST['page']);
