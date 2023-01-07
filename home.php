@@ -75,7 +75,7 @@ $pagination_args = [
         </div>
     </div>
 
-    <div class="mid gap" id="home-pagination">
+    <div class="mid gap pagination">
         <?php // echo paginate_links($pagination_args);
         echo crexp_pagination($pagination_args)
         ?>

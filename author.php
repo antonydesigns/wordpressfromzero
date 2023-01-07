@@ -40,7 +40,14 @@ $author = get_queried_object();
         <?php endwhile; ?>
     <?php else : get_template_part('template-parts/content-none') ?>
     <?php endif ?>
+
 </main>
+
+<div class="mid gap pagination">
+    <?php
+    echo crexp_pagination()
+    ?>
+</div>
 
 
 <?php

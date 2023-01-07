@@ -48,8 +48,9 @@ get_header();
     <?php endif ?>
 </main>
 
-<div class="mid gap" id="home-pagination">
-    <?php echo crexp_pagination();
+<div class="mid gap pagination">
+    <?php
+    echo crexp_pagination()
     ?>
 </div>
 
